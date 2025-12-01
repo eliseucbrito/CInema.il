@@ -1,5 +1,6 @@
 import { BullModule } from '@nestjs/bullmq';
 import { Module } from '@nestjs/common';
+import { TemplatesModule } from '../templates/templates.module';
 import { EmailController } from './email.controller';
 import { EmailProcessor } from './email.processor';
 import { EmailService } from './email.service';
@@ -9,6 +10,7 @@ import { EmailService } from './email.service';
     BullModule.registerQueue({
       name: 'email',
     }),
+    TemplatesModule,
   ],
   controllers: [EmailController],
   providers: [EmailService, EmailProcessor],

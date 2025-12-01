@@ -18,5 +18,17 @@ export class SendEmailDto {
 
   @IsString()
   @IsNotEmpty()
-  body: string;
+  @IsOptional()
+  body?: string;
+
+  @IsString()
+  @IsOptional()
+  template?: string;
+
+  @IsOptional()
+  context?: Record<string, any>;
+
+  @IsString()
+  @IsOptional()
+  service?: string; // To identify which service is requesting the template
 }
